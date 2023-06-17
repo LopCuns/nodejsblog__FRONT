@@ -1,0 +1,18 @@
+@use "varsnmix" as *
+.pageTitle
+  display: inline-block
+  margin: 0
+  color: $white
+.pageHeader
+  @include flex($justify: space-between)
+  padding: 0.5rem 2rem
+  background-color: $mainColor
+  &__nav
+    &__ul
+      @include flex($gap: 1rem)
+      padding: 0
+      &__li
+        list-style: none
+        & a 
+          color: white
+          text-decoration: none

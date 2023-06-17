@@ -1,24 +1,11 @@
 @use "reset"
 @use "varsnmix" as *
-.pageTitle
-  display: inline-block
-  margin: 0
-  color: $white
-.pageHeader
-  @include flex($justify: space-between)
-  padding: 0.5rem 1rem
-  background-color: $mainColor
-  &__nav
-    &__ul
-      @include flex($gap: 1rem)
-      padding: 0
-      &__li
-        list-style: none
-        & a 
-          color: white
-          text-decoration: none
+@use "header"
+body
+  border-bottom: 1px solid #1a48cf
 .pageMain
   padding: .5rem
+  margin-bottom: 5rem
 .searchForm
   @include flex($gap: 1rem)
   width: 100%
@@ -46,7 +33,11 @@
   background-color: $mainLight
   color: $white
 .posts_wrapper
-  background-color: purple
+  @include flex ($gap: 3rem)
+  width: 100%
+  padding: 1rem
+.post_sampleContainer
+  width: min(100%,40rem)
 .pageFooter
   position: absolute
   bottom: 0

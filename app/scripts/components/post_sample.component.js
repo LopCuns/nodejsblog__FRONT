@@ -17,6 +17,8 @@ class Postsample extends HTMLDivElement {
 
   // Función que se ejecutará cuando se defina un elemento post-sample
   connectedCallback () {
+    // Añadir la clase post_sample al elemento
+    j.addClass(this, 'post_sampleContainer')
     // Función para obtener un elemento por query y su parentNode
     const getFromTemplate = j.getQueryCurry(this.template)
     // Cambiar el texto del elemento con data-pauthor por el autor del post
@@ -32,6 +34,10 @@ class Postsample extends HTMLDivElement {
     // Importar en el componente los estilos de la stylesRoute
     const styles = j.el('style')
     j.setText(styles, `@import "${this.stylesRoute}"`)
+    // Añadir evento click que redirije a la página para ver el post completo
+    j.ev(this, 'click', () => {
+      window.location = `app/html/pages/view_post.html?author=${this.author}&title=${this.title}`
+    })
     this.shadowRoot.appendChild(styles)
   }
 }

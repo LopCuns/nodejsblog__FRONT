@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frontend side of jlblog application" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/app/assets/icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/app/assets/icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/app/assets/icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/app/assets/icon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/app/assets/icon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/app/assets/icon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/app/assets/icon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/app/assets/icon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/app/assets/icon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/app/assets/icon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/app/assets/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/app/assets/icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/app/assets/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/app/assets/icon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/app/styles/css/view_post.css" />
+    <title>View post</title>
+  </head>
+  <body>
+    <header class="pageHeader">
+      <h1 class="pageTitle">jlblog</h1>
+
+      <nav class="pageHeader__nav">
+        <ul class="pageHeader__nav__ul">
+          <!-- <li class="pageHeader__nav__ul__li">Perfil</li> -->
+          <li class="pageHeader__nav__ul__li">
+            <a href="/index.html">Atrás</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <article class="post">
+      <h2 class="post__title" id="postTitle"></h2>
+      <h3 class="post__author" id="postAuthor"></h3>
+      <p class="post__content" id="postContent"></p>
+      <button class="post__likeBtn" id="likeBtn">
+        <img src="/app/assets/img/heart.png" alt="like" />
+      </button>
+      <form class="post__comment" id="commentForm">
+        <h4 class="post__comment__text">Deja tu comentario</h4>
+        <textarea
+          class="post__comment__content"
+          name="commentContent"
+        ></textarea>
+        <input
+          type="submit"
+          value="share it!"
+          class="post__comment__submitbtn"
+        />
+      </form>
+    </article>
+    <script type="module" src="/app/scripts/view_post.js"></script>
+  </body>
+</html>
