@@ -1,0 +1,22 @@
+@use "reset"
+@use "varsnmix" as *
+
+.error_element
+  @include flex($direction: column)
+  width: min(100%, 30rem)
+  padding: 2rem
+  border-radius: $mainRadius
+  background-color: $redError
+  color: $black
+  font-family: Arial, Helvetica, sans-serif
+  &__img
+    width: 10rem
+  &__close
+    align-self: flex-end
+    padding: 0.5rem 1rem
+    border-radius: $mainRadius
+    background-color: $redErrorLight
+    color: $black
+    font:
+      family: Arial, Helvetica, sans-serif
+      weight: bold

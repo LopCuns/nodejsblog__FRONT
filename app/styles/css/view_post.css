@@ -57,6 +57,21 @@ input {
   color: #fff;
   text-decoration: none;
 }
+.error_component {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+:root {
+  --postVisibility: hidden;
+}
 .post {
   display: flex;
   flex-flow: column wrap;
@@ -69,6 +84,7 @@ input {
   border-radius: 10px;
   background-color: #3663e6;
   color: #fff;
+  visibility: var(--postVisibility);
 }
 .post__title {
   align-self: center;

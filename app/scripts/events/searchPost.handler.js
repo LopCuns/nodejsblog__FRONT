@@ -1,6 +1,7 @@
 import j from '../helpers/lib.js'
 import generatePostSampleElement from '../components/post_sample.component.js'
-import getHTML from '../helpers/getHTML.js'
+import generateError from '../components/error.component.js'
+
 import {
   getPostById,
   getUsernameById,
@@ -29,10 +30,7 @@ const searchPostHandler = async (e) => {
         title: post.title,
         likes: post.likes,
         comments: post.comments.length,
-        template: await getHTML(
-          'app/html/components/post_sample.component.html'
-        ),
-        stylesRoute: 'app/styles/css/post_sample.component.css',
+        date: post.date,
         parent: j.id('postWrapper')
       })
     }
@@ -50,16 +48,16 @@ const searchPostHandler = async (e) => {
         title: post.title,
         likes: post.likes,
         comments: post.comments.length,
-        template: await getHTML(
-          'app/html/components/post_sample.component.html'
-        ),
-        stylesRoute: 'app/styles/css/post_sample.component.css',
+        date: post.date,
         parent: j.id('postWrapper')
       })
     }
   } catch (err) {
-    // Imprimir en la consola el error devuelto por el servidor
-    console.error(err.message)
+    // Generar un nuevo error
+    return generateError({
+      message: err.message,
+      parent: document.body
+    })
   }
 }
 

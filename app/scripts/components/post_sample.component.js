@@ -1,7 +1,8 @@
+import getHTML from '../helpers/getHTML.js'
 import j from '../helpers/lib.js'
 
 class Postsample extends HTMLDivElement {
-  constructor (author, title, likes, comments, template, stylesRoute) {
+  constructor (author, title, likes, comments, date, template, stylesRoute) {
     // Heredar de div
     super()
     // Definir las propiedades de la clase
@@ -9,6 +10,7 @@ class Postsample extends HTMLDivElement {
     this.title = title
     this.likes = likes
     this.comments = comments
+    this.date = date
     this.template = template
     this.stylesRoute = stylesRoute
     // Crear el shadow root
@@ -29,6 +31,8 @@ class Postsample extends HTMLDivElement {
     j.setText(getFromTemplate('[data-plikes]'), this.likes)
     // Cambiar el texto del elemento con data-pcomments por el número de comentarios en el post
     j.setText(getFromTemplate('[data-pcomments]'), this.comments)
+    // Cambiar el texto del elemento con data-pdate por la fecha de publicación del post
+    j.setText(getFromTemplate('[data-pdate]'), this.date)
     // Incorporar el template al shadowRoot
     this.shadowRoot.appendChild(this.template)
     // Importar en el componente los estilos de la stylesRoute
@@ -45,17 +49,24 @@ class Postsample extends HTMLDivElement {
 customElements.define('post-sample', Postsample, { extends: 'div' })
 
 // Función que crea un elemento post-sample y lo incluye en un elemento del DOM (parent)
-const generatePostSampleElement = ({
+const generatePostSampleElement = async ({
   author,
   title,
   likes,
   comments,
-  template,
-  stylesRoute,
+  date,
   parent
 }) => {
   parent.appendChild(
-    new Postsample(author, title, likes, comments, template, stylesRoute)
+    new Postsample(
+      author,
+      title,
+      likes,
+      comments,
+      date,
+      await getHTML('/app/html/components/post_sample.component.html'),
+      '/app/styles/css/post_sample.component.css'
+    )
   )
 }
 export default generatePostSampleElement

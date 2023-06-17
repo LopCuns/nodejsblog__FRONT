@@ -55,6 +55,9 @@ const j = {
       ...url.matchAll(/\??([a-zA-Z0-9]+)=([a-zA-Z0-9%20]+)/g)
     ].map((match) => match.splice(1, 2))
     return Object.fromEntries(queryArray)
+  },
+  changeCssVar: (varName, newValue) => {
+    j.getQuery(document, ':root').style.setProperty(varName, newValue)
   }
 }
 

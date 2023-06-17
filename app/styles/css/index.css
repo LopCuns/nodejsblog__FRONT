@@ -16,8 +16,10 @@ input[type='img'] {
   display: inline-block;
   max-width: 100%;
 }
-button {
+button,
+textarea {
   border: none;
+  outline: none;
   background: none;
 }
 input {
@@ -37,7 +39,7 @@ input {
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   background-color: #1a48cf;
 }
 .pageHeader__nav__ul {
@@ -54,6 +56,18 @@ input {
 .pageHeader__nav__ul__li a {
   color: #fff;
   text-decoration: none;
+}
+.error_component {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 body {
   border-bottom: 1px solid #1a48cf;

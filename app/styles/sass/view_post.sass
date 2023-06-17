@@ -1,7 +1,9 @@
 @use "reset"
 @use "varsnmix" as *
 @use "header"
-
+@use "pageError"
+:root
+  --postVisibility: hidden
 .post
   @include flex($direction: column, $align: flex-end)
   width: min(100%, 40rem)
@@ -10,6 +12,7 @@
   border-radius: $mainRadius
   background-color: $mainLight
   color: $white
+  visibility: var(--postVisibility)
   &__title
     align-self: center
   &__content
