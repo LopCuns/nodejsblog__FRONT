@@ -1,0 +1,18 @@
+// VARIABLES SASS
+
+// COLORES 
+$mainColor: #1a48cf
+$mainLight: lighten($mainColor,10%)
+$white: #fff
+$redError: #e84242
+
+// MISC
+$mainRadius: 10px
+
+// MIXINS SASS
+@mixin flex($direction: row,$wrap: wrap,$justify: center,$align: center,$gap: 0)
+  display: flex
+  flex-flow: $direction $wrap
+  justify-content: $justify
+  align-items: $align
+  gap: $gap

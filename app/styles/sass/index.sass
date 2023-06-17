@@ -1,0 +1,60 @@
+@use "reset"
+@use "varsnmix" as *
+.pageTitle
+  display: inline-block
+  margin: 0
+  color: $white
+.pageHeader
+  @include flex($justify: space-between)
+  padding: 0.5rem 1rem
+  background-color: $mainColor
+  &__nav
+    &__ul
+      @include flex($gap: 1rem)
+      padding: 0
+      &__li
+        list-style: none
+        & a 
+          color: white
+          text-decoration: none
+.pageMain
+  padding: .5rem
+.searchForm
+  @include flex($gap: 1rem)
+  width: 100%
+  margin-top: 2rem
+  &__input
+    width: min(80%,20rem)
+    padding: .5rem 1rem
+    box-shadow: 0px 0px 56px 0px rgba(0,0,0,0.75)
+    border-radius: $mainRadius
+    background-color: $mainLight
+    color: $white
+    font-weight: bold
+    &:invalid
+      color: $redError
+    &:focus
+      color: $white
+  &__submitbtn
+      width: 1.5rem
+      order: -1
+.sharebtn
+  display: block
+  padding: 1rem 2rem
+  margin: 2rem auto
+  border-radius: $mainRadius
+  background-color: $mainLight
+  color: $white
+.posts_wrapper
+  background-color: purple
+.pageFooter
+  position: absolute
+  bottom: 0
+  width: 100%
+  padding: 1rem
+  text-align: center
+  background-color: $mainColor
+  &__text
+    color: $white
+
+  

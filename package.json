@@ -1,0 +1,17 @@
+{
+	"name": "nodejsblog__front",
+	"version": "1.0.0",
+	"description": "Nodejs blog frontend side",
+	"main": "app/scripts/index.js",
+	"author": "LopCuns",
+	"license": "MIT",
+	"scripts": {
+		"lint": "eslint app/scripts/**/*.js --fix",
+		"prettier": "prettier --write .",
+		"correct": "npm run lint & npm run prettier"
+	},
+	"devDependencies": {
+		"standard": "*",
+		"prettier": "2.8.8"
+	}
+}

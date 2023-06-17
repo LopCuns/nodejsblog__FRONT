@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../../styles/css/post_sample.component.css" />
+		<title>Post_sample component</title>
+	</head>
+	<body>
+		<!-- Hacer el import de la hoja de estilos para poder usarlo como web component -->
+		<h1>Post_sample component</h1>
+		<article class="post_sample" data-getme>
+			<p class="post_sample__author">by <span data-pauthor>lopcuns</span></p>
+			<p class="post_sample__title" data-ptitle>post title</p>
+			<div class="post_sample__fame">
+				<div class="post_sample__fame__section">
+					<img
+						class="post_sample__fame__section__img"
+						src="app/assets/img/heart.png"
+						alt="heart"
+					/>
+					<p class="post_sample__fame__section__count" data-plikes>0</p>
+				</div>
+				<div class="post_sample__fame__section">
+					<img
+						class="post_sample__fame__section__img"
+						src="app/assets/img/speech-bubble.png"
+						alt="speech bubble"
+					/>
+					<p class="post_sample__fame__section__count" data-pcomments>0</p>
+				</div>
+			</div>
+		</article>
+	</body>
+</html>

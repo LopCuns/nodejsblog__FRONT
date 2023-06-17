@@ -1,0 +1,27 @@
+@use "varsnmix" as *
+@use "reset"
+.post_sample
+  $imgSize: 1.3rem
+  $bigFont: 1.2em
+  width: min(100%,40rem)
+  padding: 1rem
+  border-radius: $mainRadius
+  background-color: $mainLight
+  color: $white
+  cursor: pointer
+  transition: transform .3s ease
+  &__author
+    font-size: $bigFont
+  &__title
+    text-align: center
+    font-size: $bigFont
+  &__fame
+    @include flex($justify: flex-end,$gap: 1rem)
+    padding: .5rem
+    &__section
+      @include flex($gap: .5rem)
+      &__img
+        width: $imgSize
+  &:hover
+    transform: translateY(-1rem)
+    

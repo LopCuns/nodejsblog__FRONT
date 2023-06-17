@@ -1,0 +1,63 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+body {
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	overflow-x: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+}
+img,
+input[type='img'] {
+	display: inline-block;
+	max-width: 100%;
+}
+button {
+	border: none;
+}
+input {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.post_sample {
+	width: min(100%, 40rem);
+	padding: 1rem;
+	border-radius: 10px;
+	background-color: #3663e6;
+	color: #fff;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+.post_sample__author {
+	font-size: 1.2em;
+}
+.post_sample__title {
+	text-align: center;
+	font-size: 1.2em;
+}
+.post_sample__fame {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.5rem;
+}
+.post_sample__fame__section {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+.post_sample__fame__section__img {
+	width: 1.3rem;
+}
+.post_sample:hover {
+	transform: translateY(-1rem);
+} /*# sourceMappingURL=post_sample.component.css.map */
