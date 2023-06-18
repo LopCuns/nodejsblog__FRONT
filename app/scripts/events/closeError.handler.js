@@ -4,6 +4,7 @@ const closeErrorHandler = (e) => {
   // Eliminar el elemento del DOM
   lightDOMError.remove()
   // Redireccionar al usuario a la página principal
-  window.location = '/index.html'
+  const requireRedirect = ['/app/html/pages/view_post']
+  if (requireRedirect[window.location.pathname] !== -1) window.location = '/index.html'
 }
 export default closeErrorHandler

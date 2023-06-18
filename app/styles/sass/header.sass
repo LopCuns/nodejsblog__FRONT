@@ -1,12 +1,12 @@
 @use "varsnmix" as *
-.pageTitle
-  display: inline-block
-  margin: 0
-  color: $white
 .pageHeader
   @include flex($justify: space-between)
   padding: 0.5rem 2rem
   background-color: $mainColor
+  &__title
+    display: inline-block
+    margin: 0
+    color: $white
   &__nav
     &__ul
       @include flex($gap: 1rem)

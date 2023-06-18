@@ -1,0 +1,55 @@
+@use "reset"
+@use "varsnmix" as *
+@use "header"
+@use "pageError"
+
+.pageTitle
+  text-align: center
+.mainPage
+  width: 100%
+  padding: 1rem
+.userForm
+  $inputVerticalPadding: .5rem
+  @include flex($direction: column, $align: flex-start, $gap: 1rem)
+  width: min(100%, 40rem)
+  margin:
+    left: auto
+    right: auto
+  padding: 1rem
+  border-radius: $mainRadius
+  background-color: $mainColor
+  color: $white
+  font-family: Arial, Helvetica, sans-serif
+  &__field
+    position: relative
+    width: 100%
+    margin-top: 1rem
+    &:focus-within > .userForm__label, .noin
+      transform: translateY(-100%) scale(.9)
+  &__label
+    position: absolute
+    top: 0
+    transform: translate(10px, $inputVerticalPadding) scale(1)
+    display: inline-block
+    transition: transform .5s
+  &__input
+    width: 100%
+    padding: $inputVerticalPadding 1rem
+    color: $white
+    border-bottom: 1px solid $white
+    &:invalid:not(:focus-within)
+      color: $redError
+  &__submit
+    align-self: flex-end
+    padding: 0.5rem 1rem
+    border-radius: $mainRadius
+    background-color: $mainLight
+    color: $white
+  &__login
+    align-self: flex-end
+    color: $white
+.inputError
+  background-color: $redError
+  padding: .5rem 1rem
+  &::first-letter
+    text-transform: uppercase

@@ -20,9 +20,9 @@ const j = {
   getAllQuery: (parent, selector) => {
     return parent.querySelectorAll(selector)
   },
-  setText: (element, txt, rtr = true) => {
+  setText: (element, txt) => {
     element.textContent = txt
-    if (rtr) return element
+    return element
   },
   el: (tag) => document.createElement(tag),
   ev: (element, evtype, evHandler) => {
@@ -46,8 +46,15 @@ const j = {
     el.setAttribute(attr, val)
     return el
   },
+  getAttrValue: (el, attr) => {
+    return el.getAttribute(attr)
+  },
   addClass: (el, className) => {
     el.classList.add(className)
+    return el
+  },
+  removeClass: (el, className) => {
+    el.classList.remove(className)
     return el
   },
   getQueryParameters: (url) => {
@@ -58,6 +65,17 @@ const j = {
   },
   changeCssVar: (varName, newValue) => {
     j.getQuery(document, ':root').style.setProperty(varName, newValue)
+  },
+  setAllEv: (elements, evtype, evhandler) => {
+    elements.forEach(element => j.ev(element, evtype, evhandler))
+  },
+  inputError: (input) => {
+    const errMessage = j.getAttrValue(input, 'perror') || 'Error de validación'
+    return j.setText(j.addClass(j.el('div'), 'inputError'), errMessage)
+  },
+  uuid4: () => {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16))
   }
 }
 
