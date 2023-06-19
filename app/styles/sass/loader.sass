@@ -1,0 +1,22 @@
+@use "varsnmix" as * 
+.loader
+  $size: 5rem
+  position: absolute
+  top: calc(50% - $size / 2)
+  right: calc(50% - $size / 2)
+  display: none
+  width: $size
+  height: $size
+  margin: auto
+  border:5px solid $black
+  border-left: 5px solid $mainColor
+  border-radius: 50%
+  animation: rotate infinite 1s
+  &.show
+    display: inline-block
+
+@keyframes rotate 
+  from
+    transoform: rotate(0)
+  to 
+    transform: rotate(360deg) 

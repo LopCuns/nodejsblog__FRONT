@@ -83,11 +83,10 @@
 <body>
   <header class="pageHeader">
     <h1 class="pageHeader__title">jlblog</h1>
-
     <nav class="pageHeader__nav">
       <ul class="pageHeader__nav__ul">
         <li class="pageHeader__nav__ul__li">
-          <a href="/index.html">Atrás</a>
+          <a href="javascript:history.back()">Atrás</a>
         </li>
       </ul>
     </nav>
@@ -107,6 +106,7 @@
       <a href="/app/html/pages/register.html" class="userForm__login">¿No tienes una cuenta?</a>
     </form>
   </main>
+  <div class="loader" id="loader"></div>
   <script src="/app/scripts/login.js" type="module"></script>
   <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
 </body>

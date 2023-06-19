@@ -1,6 +1,9 @@
 import { registerUser } from '../helpers/requests.js'
 import generateError from '../components/error.component.js'
+import j from '../helpers/lib.js'
 const registerFormHandler = async (e) => {
+  // Mostrar el loader
+  j.showLoader()
   try {
     e.preventDefault()
     // Obtener el username,email y password
@@ -16,6 +19,9 @@ const registerFormHandler = async (e) => {
   } catch (err) {
     // Generar un error
     return generateError({ message: err.message, parent: document.body })
+  } finally {
+    // Ocultar el loader
+    j.hideLoader()
   }
 }
 export default registerFormHandler

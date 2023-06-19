@@ -4,6 +4,8 @@ import commentFormHandler from './events/commentForm.handler.js'
 import likeHandler from './events/like.handler.js'
 import generateError from './components/error.component.js'
 const start = async () => {
+  // Mostrar el loader
+  j.showLoader()
   try {
     // Obtener el title y el author del post de los params de location
     const { title, author } = j.getQueryParameters(location.href)
@@ -28,6 +30,9 @@ const start = async () => {
       message: err.message,
       parent: document.body
     })
+  } finally {
+    // Ocultar el loader
+    j.hideLoader()
   }
 }
 start()

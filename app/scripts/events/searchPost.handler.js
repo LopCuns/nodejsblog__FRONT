@@ -9,6 +9,8 @@ import {
 } from '../helpers/requests.js'
 
 const searchPostHandler = async (e) => {
+  // Mostrar el loader
+  j.showLoader()
   try {
     // Evitar el envio del formulario
     e.preventDefault()
@@ -58,6 +60,9 @@ const searchPostHandler = async (e) => {
       message: err.message,
       parent: document.body
     })
+  } finally {
+    // Ocultar el loader
+    j.hideLoader()
   }
 }
 
