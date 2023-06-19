@@ -1,16 +1,16 @@
 import j from '../helpers/lib.js'
 import generatePostSampleElement from '../components/post_sample.component.js'
 import generateError from '../components/error.component.js'
+import { showLoader, hideLoader } from '../helpers/loader.js'
 
 import {
   getPostById,
-  getUsernameById,
   getPostByTitleAuthor
-} from '../helpers/requests.js'
-
+} from '../helpers/requests/post.requests.js'
+import { getUsernameById } from '../helpers/requests/user.requests.js'
 const searchPostHandler = async (e) => {
   // Mostrar el loader
-  j.showLoader()
+  showLoader()
   try {
     // Evitar el envio del formulario
     e.preventDefault()
@@ -62,7 +62,7 @@ const searchPostHandler = async (e) => {
     })
   } finally {
     // Ocultar el loader
-    j.hideLoader()
+    hideLoader()
   }
 }
 

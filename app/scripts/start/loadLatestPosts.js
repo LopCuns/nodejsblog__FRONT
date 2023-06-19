@@ -1,10 +1,11 @@
-import { getLatestPosts, getUsernameById } from '../helpers/requests.js'
+import { getLatestPosts } from '../helpers/requests/post.requests.js'
+import { getUsernameById } from '../helpers/requests/user.requests.js'
 import generateError from '../components/error.component.js'
 import generatePostSampleElement from '../components/post_sample.component.js'
-import j from '../helpers/lib.js'
+import { showLoader, hideLoader } from '../helpers/loader.js'
 const loadLatestPosts = async () => {
   // Mostrar el loader
-  j.showLoader()
+  showLoader()
   try {
     // Obtener los posts más recientes
     const latestPosts = await getLatestPosts()
@@ -19,7 +20,7 @@ const loadLatestPosts = async () => {
         likes: post.likes,
         comments: post.comments.length,
         date: post.date,
-        parent: j.id('postWrapper')
+        parent: document.getElementById('postWrapper')
       })
     })
   } catch (err) {
@@ -27,7 +28,7 @@ const loadLatestPosts = async () => {
     generateError({ message: err.message, parent: document.body })
   } finally {
     // Ocultar el loader
-    j.hideLoader()
+    hideLoader()
   }
 }
 export default loadLatestPosts

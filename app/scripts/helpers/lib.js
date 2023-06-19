@@ -80,9 +80,12 @@ const j = {
   getJWT: () => {
     return localStorage.getItem('jwt')
   },
-  loader: document.getElementById('loader'),
-  showLoader: () => j.addClass(j.loader, 'show'),
-  hideLoader: () => j.removeClass(j.loader, 'show')
+  noScroll: () => {
+    document.body.style = 'overflow: hidden'
+  },
+  allowScroll: () => {
+    document.body.style = ''
+  }
 }
 
 export default j

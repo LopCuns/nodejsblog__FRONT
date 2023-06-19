@@ -44,5 +44,7 @@ const generateError = async ({ message, parent }) => {
       '/app/styles/css/error.component.css'
     )
   )
+  // Imperdir scroll en el body
+  j.noScroll()
 }
 export default generateError

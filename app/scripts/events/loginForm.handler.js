@@ -1,9 +1,9 @@
 import generateError from '../components/error.component.js'
-import { loginUser } from '../helpers/requests.js'
-import j from '../helpers/lib.js'
+import { loginUser, getUserProfile } from '../helpers/requests/user.requests.js'
+import { showLoader, hideLoader } from '../helpers/loader.js'
 const loginFormHandler = async (e) => {
   // Mostrar el loader
-  j.showLoader()
+  showLoader()
   try {
     e.preventDefault()
     // Obtener el email y password
@@ -15,6 +15,9 @@ const loginFormHandler = async (e) => {
     })
     // Almacenar el JsonWebToken del usuario en el localStorage
     localStorage.setItem('jwt', await response.jwt)
+    // Obtener los datos del usuario y almacenarlos en el localStorage
+    const userModel = await getUserProfile()
+    localStorage.setItem('userModel', JSON.stringify(userModel))
     // Resetear el formulario
     e.target.reset()
     // Redireccionar a la página principal
@@ -26,7 +29,7 @@ const loginFormHandler = async (e) => {
     })
   } finally {
     // Ocultar el loader
-    j.hideLoader()
+    hideLoader()
   }
 }
 export default loginFormHandler

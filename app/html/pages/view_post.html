@@ -99,9 +99,12 @@
       <h3 class="post__author" id="postAuthor"></h3>
       <p class="post__date" id="postDate"></p>
       <p class="post__content" id="postContent"></p>
-      <button class="post__likeBtn" id="likeBtn">
-        <img src="/app/assets/img/heart.png" alt="like" />
+      <button class="post__likeBtn" id="likeBtn" data-likeCount="0">
+        <img src="/app/assets/img/heart.png" alt="like"/>
       </button>
+      <section class="post__comments" id="postComments">
+        <h4>Comentarios</h4>
+      </section>
       <form class="post__comment" id="commentForm">
         <h4 class="post__comment__text">Deja tu comentario</h4>
         <textarea

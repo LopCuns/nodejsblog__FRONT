@@ -1,8 +1,4 @@
-@use "reset"
-@use "varsnmix" as *
-@use "header"
-@use "pageError"
-@use "loader"
+@use "./modules" as *
 :root
   --postVisibility: hidden
 .post
@@ -21,6 +17,16 @@
     text-align: justify
   &__likeBtn
     width: 2rem
+    &::after
+      content: attr(data-likeCount)
+      display: inline-block
+      font-family: Arial, Helvetica, sans-serif
+      color: $white
+  &__comments
+    width: 100%
+    &__comment
+      width: 100%
+      margin-top: 1rem
   &__comment
     @include flex($direction: column,$align: flex-start)
     width: 100%
@@ -31,6 +37,8 @@
       resize: vertical
       border-radius: $mainRadius
       background-color: $superLight
+      color: $white
+      font-family: Arial, Helvetica, sans-serif
     &__submitbtn
       align-self: flex-end
       padding: 0.7rem 1.4rem
