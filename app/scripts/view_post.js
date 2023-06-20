@@ -19,7 +19,9 @@ const start = async () => {
     // Incluir el titulo del post en la página
     j.setText(j.id('postTitle'), title.replaceAll('%20', ' '))
     // Incluir el autor del post en la página
-    j.setText(j.id('postAuthor'), `by ${author}`)
+    j.setText(j.id('postAuthor'), `${author}`)
+    // Incluir el id del post en la página
+    j.setText(j.id('postId'), `${post._id}`)
     // Incluir la fecha del post en la página
     j.setText(j.id('postDate'), post.date)
     // Incluir el contenido del post en la página

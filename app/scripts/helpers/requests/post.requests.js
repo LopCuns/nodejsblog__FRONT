@@ -78,3 +78,17 @@ export const modifyPostComment = async (postId, content) => {
     }
   })
 }
+
+export const createPost = async (post) => {
+  return requestModel({
+    path: '/posts/create',
+    fetchOptions: {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${j.getJWT()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(post)
+    }
+  })
+}

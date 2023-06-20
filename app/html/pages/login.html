@@ -102,7 +102,7 @@
             id="emailInput"
             class="userForm__input"
             pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
-            perror="Debes ingresar un email válido"
+            data-perror="Debes ingresar un email válido"
           />
         </div>
         <div class="userForm__field">
@@ -113,7 +113,7 @@
             id="passwordInput"
             class="userForm__input"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-            perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+            data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
           />
         </div>
         <input type="submit" class="userForm__submit" value="Iniciar sesión" />

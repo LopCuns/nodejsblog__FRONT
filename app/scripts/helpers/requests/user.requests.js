@@ -1,5 +1,5 @@
 import j from '../lib.js'
-
+import uuid4 from '../uuid4.js'
 import requestModel from './requestModel.js'
 
 export const getUsernameById = async (_id) => {
@@ -13,7 +13,7 @@ export const getUsernameById = async (_id) => {
 
 export const registerUser = async ({ username, email, password }) => {
   const userData = {
-    _id: j.uuid4(),
+    _id: uuid4(),
     username,
     role: 'user',
     email,

@@ -32,7 +32,9 @@ class PostComment extends HTMLDivElement {
     this.shadowRoot.appendChild(styles)
     // Si el usuario no es autor del comentario, retirar el botón para eliminarlo
     const delCommentBtn = getFromTemplate('[data-cdel]')
-    if ((await getUserProfile()).username !== this.author) { return delCommentBtn.remove() }
+    if ((await getUserProfile()).username !== this.author) {
+      return delCommentBtn.remove()
+    }
     // Atributo para operar con el comentario hecho por el usuario
     j.attr(this, 'data-byuser', true)
     // Si el usuario es el autor del comentario, añadir el listener para eliminar el comentario

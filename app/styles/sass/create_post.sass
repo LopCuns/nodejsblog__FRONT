@@ -1,0 +1,42 @@
+@use "modules" as *
+.pageTitle
+  text-align: center
+
+.mainPage
+  width: 100%
+.postForm
+  @include flex($direction: column, $gap: 1rem)
+  width: min(100%,40rem)
+  margin:
+    left: auto
+    right: auto
+  padding: 1rem
+  border-radius: $mainRadius
+  background-color: $mainLight
+  color: $white
+  &__field
+    @include flex($direction: column, $gap: .5rem)
+    width: 100%
+  &__label
+    align-self: flex-start
+  &__title
+    width: 100%
+    padding: .5rem 1rem
+    border-bottom: 3px solid $white
+    color: $white
+  &__content
+    background-color: skyblue
+    width: 100%
+    min-height: 10rem
+    padding: .5rem
+    font-family: Arial, Helvetica, sans-serif
+    resize: vertical
+    background-color: $superLight
+    color: $white
+  &__submitBtn
+    align-self: flex-end
+    padding: .7rem 1.4rem
+    border-radius: $mainRadius
+    background-color: $superLight
+    font-family: Arial, Helvetica, sans-serif
+    color: $white
