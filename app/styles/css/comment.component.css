@@ -1,1 +1,20 @@
-.postComment{width:100%;padding:.5rem;border-radius:10px;background-color:#6486eb;box-sizing:border-box}/*# sourceMappingURL=comment.component.css.map */
+.postComment {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: #6486eb;
+  box-sizing: border-box;
+}
+.postComment__delete {
+  position: absolute;
+  right: 0.5rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+}
+.postComment__delete img {
+  width: 100%;
+} /*# sourceMappingURL=comment.component.css.map */

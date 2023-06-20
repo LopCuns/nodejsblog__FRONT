@@ -27,14 +27,21 @@ const start = async () => {
     // Incluir el número de likes en la página
     j.attr(j.id('likeBtn'), 'data-likeCount', post.likes)
     // Incluir los comentarios del post en la página
-    post.comments.forEach(async comment => {
+    // ACLARACIÓN: se usa for ... of ... porque forEach no está diseñado para operaciones asíncronas
+    for (const comment of post.comments) {
       const commentAuthor = await getUsernameById(comment.authorId)
+      console.log(commentAuthor)
       await generatePostComment({
         author: commentAuthor || 'DeletedUser',
         content: comment.content,
-        parent: j.id('postComments')
+        parent: j.id('postComments'),
+        postId: post._id
       })
-    })
+    }
+    // Si el usuario ya ha comentado en el post, cambiar el valor del botón de submit
+    if (j.getQuery(document.body, '[data-byuser]')) {
+      j.changeValue(j.id('commentSubmit'), 'Editar comentario')
+    }
     // Añadir los handlers al formulario para comentar y el botón de like
     j.ev(j.id('commentForm'), 'submit', commentFormHandler(post._id))
     j.ev(j.id('likeBtn'), 'click', likeHandler(post._id))

@@ -8,6 +8,8 @@ const closeErrorHandler = (e) => {
   j.allowScroll()
   // Redireccionar al usuario a la página principal
   const requireRedirect = ['/app/html/pages/view_post']
-  if (requireRedirect.indexOf(window.location.pathname) !== -1) window.location = '/index.html'
+  if (requireRedirect.indexOf(window.location.pathname) !== -1) {
+    window.location = '/index.html'
+  }
 }
 export default closeErrorHandler

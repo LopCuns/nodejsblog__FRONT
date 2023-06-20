@@ -12,19 +12,27 @@ const likeHandler = (postId) => {
       // Dar like al post
       await likePost(postId)
       // Incrementar en 1 el número de likes del post
-      j.attr(likeBtn, 'data-likeCount', Number(j.getAttrValue(likeBtn, 'data-likeCount')) + 1)
+      j.attr(
+        likeBtn,
+        'data-likeCount',
+        Number(j.getAttrValue(likeBtn, 'data-likeCount')) + 1
+      )
     } catch (err) {
       // Obtener el código de error
       const errCode = err.message.slice(0, 3)
       // Si el código es distinto de 409, generar un error
       if (errCode !== '409') {
         // Generar un error
-        generateError({ message: err.message, parent: document.body })
+        return generateError({ message: err.message, parent: document.body })
       }
       // Si el código es 409, entonces retirar el like del post
       await dislikePost(postId)
       // Reducir en 1 el valor de likes
-      j.attr(likeBtn, 'data-likeCount', Number(j.getAttrValue(likeBtn, 'data-likeCount')) - 1)
+      j.attr(
+        likeBtn,
+        'data-likeCount',
+        Number(j.getAttrValue(likeBtn, 'data-likeCount')) - 1
+      )
     } finally {
       // Ocultar el loader
       hideLoader()

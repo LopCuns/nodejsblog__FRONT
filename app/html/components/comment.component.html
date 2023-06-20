@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comment</title>
+  </head>
+  <body>
     <h1>Post comment</h1>
     <article data-getme class="postComment">
+      <button class="postComment__delete" data-cdel>
+        <img src="/app/assets/img/delete.png" alt="delete comment" />
+      </button>
       <p class="postComment__author">by <span data-cauthor></span></p>
       <p class="postComment__content" data-ccontent></p>
     </article>
-</body>
+  </body>
 </html>

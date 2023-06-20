@@ -1,7 +1,18 @@
 @use "varsnmix" as *
 .postComment
+  position: relative
   width: 100%
   padding: .5rem
   border-radius: $mainRadius
   background-color: $superLight
   box-sizing: border-box
+  &__delete
+    position: absolute
+    right: .5rem
+    top: 1rem
+    width: 2rem
+    height: 2rem
+    border: none
+    background: none
+    & img
+      width: 100%

@@ -19,6 +19,8 @@ const animatedInputHandler = (e) => {
   // Si el input no tiene patrón o el input está vacío, no hacer nada
   if (!inputPattern || isInputEmpty) return
   // Si el input no cumple con su patrón, devolver un error
-  if (!new RegExp(inputPattern).exec(input.value)) return input.after(j.inputError(input))
+  if (!new RegExp(inputPattern).exec(input.value)) {
+    return input.after(j.inputError(input))
+  }
 }
 export default animatedInputHandler
