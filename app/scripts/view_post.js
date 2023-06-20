@@ -30,7 +30,6 @@ const start = async () => {
     // ACLARACIÓN: se usa for ... of ... porque forEach no está diseñado para operaciones asíncronas
     for (const comment of post.comments) {
       const commentAuthor = await getUsernameById(comment.authorId)
-      console.log(commentAuthor)
       await generatePostComment({
         author: commentAuthor || 'DeletedUser',
         content: comment.content,

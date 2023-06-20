@@ -1,6 +1,6 @@
 import j from '../helpers/lib.js'
 import getHTML from '../helpers/getHTML.js'
-import getUserModel from '../helpers/getUserModel.js'
+import { getUserProfile } from '../helpers/requests/user.requests.js'
 import deleteCommentHandler from '../events/deleteComment.handler.js'
 
 class PostComment extends HTMLDivElement {
@@ -17,7 +17,7 @@ class PostComment extends HTMLDivElement {
   }
 
   // Función que se ejecuta al instanciar un elemento de esta clase
-  connectedCallback () {
+  async connectedCallback () {
     j.addClass(this, 'post__comments__comment')
     // Función para obtener elementos a partir del template
     const getFromTemplate = j.getQueryCurry(this.template)
@@ -32,7 +32,7 @@ class PostComment extends HTMLDivElement {
     this.shadowRoot.appendChild(styles)
     // Si el usuario no es autor del comentario, retirar el botón para eliminarlo
     const delCommentBtn = getFromTemplate('[data-cdel]')
-    if (getUserModel().username !== this.author) return delCommentBtn.remove()
+    if ((await getUserProfile()).username !== this.author) { return delCommentBtn.remove() }
     // Atributo para operar con el comentario hecho por el usuario
     j.attr(this, 'data-byuser', true)
     // Si el usuario es el autor del comentario, añadir el listener para eliminar el comentario

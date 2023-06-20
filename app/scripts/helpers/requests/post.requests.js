@@ -59,7 +59,7 @@ export const deletePostComment = async (postId) => {
   return requestModel({
     path: `/posts/comment-delete/${postId}`,
     fetchOptions: {
-      method: 'POST',
+      method: 'DELETE',
       headers: { Authorization: `Bearer ${j.getJWT()}` }
     }
   })

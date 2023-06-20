@@ -6,8 +6,7 @@ import generateError from '../components/error.component.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'
 import j from '../helpers/lib.js'
 import generatePostComment from '../components/comment.component.js'
-import { getUsernameById } from '../helpers/requests/user.requests.js'
-import getUserModel from '../helpers/getUserModel.js'
+import { getUserProfile } from '../helpers/requests/user.requests.js'
 
 const commentFormHandler = (postId) => {
   return async (e) => {
@@ -32,7 +31,7 @@ const commentFormHandler = (postId) => {
       await commentPost(postId, commentContent)
       // Añadir el comentario en el post
       await generatePostComment({
-        author: await getUsernameById(getUserModel()._id),
+        author: (await getUserProfile()).username,
         content: commentContent,
         parent: j.id('postComments'),
         postId

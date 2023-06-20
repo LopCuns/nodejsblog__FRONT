@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint app/scripts/**/*.js --fix",
     "prettier": "prettier --write .",
-    "correct": "npm run lint & npm run prettier"
+    "correct": "npm run prettier & npm run lint"
   },
   "devDependencies": {
     "prettier": "2.8.8",
