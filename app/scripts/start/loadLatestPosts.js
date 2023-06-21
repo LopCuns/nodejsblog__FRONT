@@ -1,5 +1,5 @@
-import { getLatestPosts } from '../helpers/requests/post.requests.js'
-import { getUsernameById } from '../helpers/requests/user.requests.js'
+import { getLatestPosts } from '../server/requests/post.requests.js'
+import { getUsernameById } from '../server/requests/user.requests.js'
 import generateError from '../components/error.component.js'
 import generatePostSampleElement from '../components/post_sample.component.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'

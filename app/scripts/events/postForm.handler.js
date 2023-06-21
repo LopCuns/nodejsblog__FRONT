@@ -1,4 +1,4 @@
-import { createPost } from '../helpers/requests/post.requests.js'
+import { createPost } from '../server/requests/post.requests.js'
 import generateError from '../components/error.component.js'
 import uuid4 from '../helpers/uuid4.js'
 import getCurrentDate from '../helpers/getCurrentDate.js'

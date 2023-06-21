@@ -1,5 +1,5 @@
-import { dislikePost, likePost } from '../helpers/requests/post.requests.js'
-import { getUserProfile } from '../helpers/requests/user.requests.js'
+import { dislikePost, likePost } from '../server/requests/post.requests.js'
+import { getUserProfile } from '../server/requests/user.requests.js'
 import generateError from '../components/error.component.js'
 import j from '../helpers/lib.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'

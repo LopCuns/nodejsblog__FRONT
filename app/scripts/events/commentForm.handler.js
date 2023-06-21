@@ -1,12 +1,12 @@
 import {
   commentPost,
   modifyPostComment
-} from '../helpers/requests/post.requests.js'
+} from '../server/requests/post.requests.js'
 import generateError from '../components/error.component.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'
 import j from '../helpers/lib.js'
 import generatePostComment from '../components/comment.component.js'
-import { getUserProfile } from '../helpers/requests/user.requests.js'
+import { getUserProfile } from '../server/requests/user.requests.js'
 
 const commentFormHandler = (postId) => {
   return async (e) => {

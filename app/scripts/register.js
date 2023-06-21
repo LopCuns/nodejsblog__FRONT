@@ -5,7 +5,9 @@ const start = async () => {
   j.ev(window, 'DOMContentLoaded', async () => {
     j.ev(
       j.getFromShadow(j.id('registerForm'), 'form'),
-      'submit', registerFormHandler)
+      'submit',
+      registerFormHandler
+    )
   })
 }
 start()

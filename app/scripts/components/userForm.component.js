@@ -3,38 +3,23 @@ import j from '../helpers/lib.js'
 // Parte del userForm
 const submitBtn = (message) => {
   return j.addClass(
-    j.attr(
-      j.changeValue(
-        j.el('input'),
-        message),
-      'type',
-      'submit'
-    ),
+    j.attr(j.changeValue(j.el('input'), message), 'type', 'submit'),
     'userForm__submit'
   )
 }
 // Parte del userForm
 const link = (href, text) => {
   return j.addClass(
-    j.setText(
-      j.attr(
-        j.el('a'),
-        'href',
-        href
-      ),
-      text
-    ),
+    j.setText(j.attr(j.el('a'), 'href', href), text),
     'userForm__link'
   )
 }
 // Parte del userForm
 const close = () => {
-  return j.addClass(
-    j.setText(
-      j.el('button'),
-      'Cerrar'
-    ),
-    'userForm__close'
+  return j.attr(
+    j.addClass(j.setText(j.el('button'), 'Cerrar'), 'userForm__close'),
+    'type',
+    'button'
   )
 }
 // Parte del userForm
@@ -44,11 +29,7 @@ const formField = (input) => {
   // Crear un label
   const label = j.setText(
     j.addClass(
-      j.attr(
-        j.el('label'),
-        'for',
-        j.getAttrValue(input, 'id')
-      ),
+      j.attr(j.el('label'), 'for', j.getAttrValue(input, 'id')),
       'userForm__label'
     ),
     j.getAttrValue(input, 'data-label')
@@ -77,11 +58,11 @@ class userForm extends HTMLElement {
   connectedCallback () {
     // Obtener los inputs del formulario y transformarlos en campos
     const inputs = Array.from(this.children)
-      .filter(el => el.tagName === 'INPUT')
-      .map(input => formField(input))
+      .filter((el) => el.tagName === 'INPUT')
+      .map((input) => formField(input))
     // Incorporar los campos en el formulario
     if (inputs) {
-      inputs.forEach(input => this.formElement.append(input))
+      inputs.forEach((input) => this.formElement.append(input))
     }
     // Si hay submit, crear un submitBtn e incorporarlo al formulario
     if (this.submit) {
@@ -100,6 +81,11 @@ class userForm extends HTMLElement {
       '@import "/app/styles/css/userForm.css"'
     )
     this.shadowRoot.append(style)
+
+    // Función para obtener elementos a partir del componente
+    const getFromComponent = j.getQueryCurry(this.shadowRoot)
+    // Añadir event listener para cerrar el formulario
+    j.ev(getFromComponent('.userForm__close'), 'click', () => j.hide(this))
   }
 }
 

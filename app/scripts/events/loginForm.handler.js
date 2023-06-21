@@ -1,5 +1,5 @@
 import generateError from '../components/error.component.js'
-import { loginUser } from '../helpers/requests/user.requests.js'
+import { loginUser } from '../server/requests/user.requests.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'
 const loginFormHandler = async (e) => {
   // Mostrar el loader

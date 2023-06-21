@@ -1,6 +1,6 @@
 import j from '../helpers/lib.js'
 import getHTML from '../helpers/getHTML.js'
-import { getUserProfile } from '../helpers/requests/user.requests.js'
+import { getUserProfile } from '../server/requests/user.requests.js'
 import deleteCommentHandler from '../events/deleteComment.handler.js'
 
 class PostComment extends HTMLDivElement {

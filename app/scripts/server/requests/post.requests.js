@@ -1,4 +1,4 @@
-import j from '../lib.js'
+import j from '../../helpers/lib.js'
 import requestModel from './requestModel.js'
 
 export const getPostById = async (_id) => {

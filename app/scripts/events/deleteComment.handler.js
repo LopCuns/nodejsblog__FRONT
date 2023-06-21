@@ -1,4 +1,4 @@
-import { deletePostComment } from '../helpers/requests/post.requests.js'
+import { deletePostComment } from '../server/requests/post.requests.js'
 import generateError from '../components/error.component.js'
 import j from '../helpers/lib.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'

@@ -6,8 +6,8 @@ import { showLoader, hideLoader } from '../helpers/loader.js'
 import {
   getPostById,
   getPostByTitleAuthor
-} from '../helpers/requests/post.requests.js'
-import { getUsernameById } from '../helpers/requests/user.requests.js'
+} from '../server/requests/post.requests.js'
+import { getUsernameById } from '../server/requests/user.requests.js'
 const searchPostHandler = async (e) => {
   // Mostrar el loader
   showLoader()

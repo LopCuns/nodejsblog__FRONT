@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UserForm</title>
-</head>
-<body>
-  <form class="userForm" id="registerForm" autocomplete="off">
-    <slot name="userForm__field">
-      <label for="usernameInput" class="userForm__label">Username</label>
-      <input
-        type="text"
-        name="username"
-        id="usernameInput"
-        class="userForm__input"
-        pattern="([a-zA-Z0-9]{4,15})"
-        data-perror="Username debe contener entre 4 y 15 caracteres"
-      />
-    </slot>
-    <input type="submit" class="userForm__submit" value="Registrarse" />
-    <a href="/app/html/pages/login.html" class="userForm__login"
-      >¿Ya tienes una cuenta?</a
-    >
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserForm</title>
+  </head>
+  <body>
+    <form class="userForm" id="registerForm" autocomplete="off">
+      <slot name="userForm__field">
+        <label for="usernameInput" class="userForm__label">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="usernameInput"
+          class="userForm__input"
+          pattern="([a-zA-Z0-9]{4,15})"
+          data-perror="Username debe contener entre 4 y 15 caracteres"
+        />
+      </slot>
+      <input type="submit" class="userForm__submit" value="Registrarse" />
+      <a href="/app/html/pages/login.html" class="userForm__login"
+        >¿Ya tienes una cuenta?</a
+      >
+    </form>
+  </body>
 </html>

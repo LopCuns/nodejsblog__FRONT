@@ -10,7 +10,8 @@ const start = async () => {
     j.hide(j.id('registerLink'))
     j.hide(j.id('loginLink'))
     j.show(j.id('profileLink'))
-  } else { // Si el usuario no está logeado
+  } else {
+    // Si el usuario no está logeado
     j.show(j.id('registerLink'))
     j.show(j.id('loginLink'))
     j.hide(j.id('profileLink'))

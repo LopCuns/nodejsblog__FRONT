@@ -1,4 +1,4 @@
-import { registerUser } from '../helpers/requests/user.requests.js'
+import { registerUser } from '../server/requests/user.requests.js'
 import generateError from '../components/error.component.js'
 import { showLoader, hideLoader } from '../helpers/loader.js'
 const registerFormHandler = async (e) => {

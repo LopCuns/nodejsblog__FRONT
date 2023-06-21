@@ -1,5 +1,5 @@
-import j from '../lib.js'
-import { BASEURL } from '../../server/enviorment.js'
+import j from '../../helpers/lib.js'
+import { BASEURL } from '../enviorment.js'
 
 const requestModel = async ({ path, fetchOptions = {} }) => {
   // Hacer una petición a la base de datos

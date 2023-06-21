@@ -1,12 +1,10 @@
 @use "modules" as *
 @use "userForm"
 
-.hidden
-  display: none
-
 .userData
   @include flex($direction: column)
   width: 100%
+  padding-left: 2rem
   &__txt
   &__data
     @include flex($justify: flex-start,$gap: 1rem)
@@ -16,11 +14,13 @@
       &__img
         width: 100%
   &__update
-    position: absolute
-    top: 10rem
-    right: 50%
-    transform: translateX(50%)
-    width: min(100%, 40rem)
+    @include flex()
+    position: fixed
+    top: 0
+    right: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .4)
   &__posts
     @include flex($direction: column,$align: flex-start, $gap: 1rem)
     width: 100%
@@ -37,8 +37,6 @@
       size: 1em
 .profileLink
   color: $black
-.userForm
-  position: absolute
-  top: 10rem
-  right: 50%
-  transform: translateX(50%)
+
+.hidden
+  display: none

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frontend side of jlblog application" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frontend side of jlblog application" />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -77,110 +77,152 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="/app/styles/css/profile.css">
-  <title>Perfil</title>
-</head>
-<body>
-  <header class="pageHeader">
-    <h1 class="pageHeader__title">jlblog</h1>
+    <link rel="stylesheet" href="/app/styles/css/profile.css" />
+    <title>Perfil</title>
+  </head>
+  <body>
+    <header class="pageHeader">
+      <h1 class="pageHeader__title">jlblog</h1>
 
-    <nav class="pageHeader__nav">
-      <ul class="pageHeader__nav__ul">
-        <li class="pageHeader__nav__ul__li">
-          <a href="javascript:history.back()">Atrás</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main class="mainPage">
-    <article class="userData">
-      <p class="userData__data userData__txt">_id: <span id="userId">1271239871029384701298374</span></p>
-      <p class="userData__data userData__txt">role: <span id="userRole">user</span></p>
-      <div class="userData__data">
-        <button class="userData__data__editBtn">
-          <img class="userData__data__editBtn__img" src="/app/assets/img/pencil.png" alt="edit">
-        </button>
-        <p class="userData__data__txt">username: <span id="userUsername">Unknown</span></p>
-        <user-form class="userData__update hidden" data-close data-submit="Cambiar username">
-        <input
-        type="text"
-        name="username"
-        id="usernameInput"
-        class="userForm__input"
-        pattern="([a-zA-Z0-9]{4,15})"
-        data-perror="Username debe contener entre 4 y 15 caracteres"
-        required
-        data-label="Username"
-      />
-        </user-form>
-      </div>
-      <div class="userData__data">
-        <button class="userData__data__editBtn">
-          <img class="userData__data__editBtn__img" src="/app/assets/img/pencil.png" alt="edit">
-        </button>
-        <p class="userData__txt">email: <span id="userEmail">user@user.com</span></p>
-        <user-form class="userData__update hidden" data-close data-submit="cambiar email">
-          <input
-          type="email"
-          name="newEmail"
-          id="newEmailInput"
-          class="userForm__input"
-          pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
-          data-perror="Debes ingresar un email válido"
-          required
-          data-label="nuevo email"
-        />
-        <input
-          type="password"
-          name="password"
-          id="nePasswordInput"
-          class="userForm__input"
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-          data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
-          required
-          data-label="Contraseña"
-        />
-        </user-form>
-      </div>
-      <div class="userData__data">
-        <button class="userData__data__editBtn">
-          <img class="userData__data__editBtn__img" src="/app/assets/img/pencil.png" alt="edit">
-        </button>
-        <p class="userData__txt">password</p>
-        <user-form class="userData__update hidden" data-close data-submit="Cambiar contraseña">
-          <input
-          type="password"
-          name="olPassword"
-          id="oldPasswordInput"
-          class="userForm__input"
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-          data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
-          required
-          data-label="Contraseña actual"
-        />
-        <input
-          type="password"
-          name="newPassword"
-          id="newPasswordInput"
-          class="userForm__input"
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-          data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
-          required
-          data-label="Contraseña nueva"
-        />
-        </user-form>
-      </div>
-      <div class="userData__posts">
-        <a class="profileLink" href="#">Ver mis posts</a>
-        <a class="profileLink" href="#">Posts guardados</a>
-      </div>
-    </article>
-  </main>
-  <footer class="pageFooter">
-    <a class="profileLink" href="/app/html/pages/unregister.html">Eliminar cuenta</a>
-    <button class="pageFooter__btn">Cerrar sesión</button>
-  </footer>
-  <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
-  <script src="/app/scripts/components/userForm.component.js" type="module"></script>
-</body>
+      <nav class="pageHeader__nav">
+        <ul class="pageHeader__nav__ul">
+          <li class="pageHeader__nav__ul__li">
+            <a href="javascript:history.back()">Atrás</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="mainPage">
+      <article class="userData">
+        <p class="userData__data userData__txt">
+          _id: <span id="userId"></span>
+        </p>
+        <p class="userData__data userData__txt">
+          role: <span id="userRole"></span>
+        </p>
+        <div class="userData__data">
+          <button class="userData__data__editBtn" data-form="updateUsername">
+            <img
+              class="userData__data__editBtn__img"
+              src="/app/assets/img/pencil.png"
+              alt="edit"
+            />
+          </button>
+          <p class="userData__data__txt">
+            username: <span id="userUsername"></span>
+          </p>
+          <user-form
+            class="userData__update hidden"
+            data-close
+            data-submit="Cambiar username"
+            id="updateUsername"
+          >
+            <input
+              type="text"
+              name="newUsername"
+              id="usernameInput"
+              class="userForm__input"
+              pattern="^([a-zA-Z0-9]{4,15})$"
+              minlength="4"
+              maxlength="15"
+              data-perror="Username debe contener entre 4 y 15 caracteres sin espacios"
+              required
+              data-label="nuevo username"
+            />
+          </user-form>
+        </div>
+        <div class="userData__data">
+          <button class="userData__data__editBtn" data-form="updateEmail">
+            <img
+              class="userData__data__editBtn__img"
+              src="/app/assets/img/pencil.png"
+              alt="edit"
+            />
+          </button>
+          <p class="userData__txt">email: <span id="userEmail"></span></p>
+          <user-form
+            class="userData__update hidden"
+            data-close
+            data-submit="cambiar email"
+            id="updateEmail"
+          >
+            <input
+              type="email"
+              name="newEmail"
+              id="newEmailInput"
+              class="userForm__input"
+              pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
+              data-perror="Debes ingresar un email válido"
+              required
+              data-label="nuevo email"
+            />
+            <input
+              type="password"
+              name="password"
+              id="nePasswordInput"
+              class="userForm__input"
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+              data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+              required
+              data-label="Contraseña"
+            />
+          </user-form>
+        </div>
+        <div class="userData__data">
+          <button class="userData__data__editBtn" data-form="updatePassword">
+            <img
+              class="userData__data__editBtn__img"
+              src="/app/assets/img/pencil.png"
+              alt="edit"
+            />
+          </button>
+          <p class="userData__txt">password</p>
+          <user-form
+            class="userData__update hidden"
+            data-close
+            data-submit="Cambiar contraseña"
+            id="updatePassword"
+          >
+            <input
+              type="password"
+              name="oldPassword"
+              id="oldPasswordInput"
+              class="userForm__input"
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+              data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+              required
+              data-label="Contraseña actual"
+            />
+            <input
+              type="password"
+              name="newPassword"
+              id="newPasswordInput"
+              class="userForm__input"
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+              data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+              required
+              data-label="Contraseña nueva"
+            />
+          </user-form>
+        </div>
+        <div class="userData__posts">
+          <a class="profileLink" href="#">Ver mis posts</a>
+          <a class="profileLink" href="#">Posts guardados</a>
+        </div>
+      </article>
+    </main>
+    <footer class="pageFooter">
+      <a class="profileLink" href="/app/html/pages/unregister.html"
+        >Eliminar cuenta</a
+      >
+      <button class="pageFooter__btn">Cerrar sesión</button>
+    </footer>
+    <div class="loader" id="loader"></div>
+    <script src="/app/scripts/profile.js" type="module"></script>
+    <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
+    <script
+      src="/app/scripts/components/userForm.component.js"
+      type="module"
+    ></script>
+  </body>
 </html>
