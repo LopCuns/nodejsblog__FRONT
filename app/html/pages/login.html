@@ -77,7 +77,7 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="/app/styles/css/userForm.css" />
+    <link rel="stylesheet" href="/app/styles/css/login.css" />
     <title>Iniciar sesión</title>
   </head>
   <body>
@@ -93,37 +93,37 @@
     </header>
     <h2 class="pageTitle">Iniciar sesión</h2>
     <main class="mainPage">
-      <form class="userForm" id="loginForm" autocomplete="off">
-        <div class="userForm__field">
-          <label for="emailInput" class="userForm__label">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="emailInput"
-            class="userForm__input"
-            pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
-            data-perror="Debes ingresar un email válido"
-          />
-        </div>
-        <div class="userForm__field">
-          <label for="passwordInput" class="userForm__label">Contraseña</label>
-          <input
-            type="password"
-            name="password"
-            id="passwordInput"
-            class="userForm__input"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-            data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
-          />
-        </div>
-        <input type="submit" class="userForm__submit" value="Iniciar sesión" />
-        <a href="/app/html/pages/register.html" class="userForm__login"
-          >¿No tienes una cuenta?</a
-        >
-      </form>
+      <user-form
+      data-submit="Iniciar sesión"
+      data-linkhref="/app/html/pages/register.html"
+      data-linktext="¿No tienes una cuenta?"
+      id="loginForm"
+      >
+      <input
+      type="email"
+      name="email"
+      id="emailInput"
+      class="userForm__input"
+      pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
+      data-perror="Debes ingresar un email válido"
+      required
+      data-label="email"
+    />
+    <input
+      type="password"
+      name="password"
+      id="passwordInput"
+      class="userForm__input"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+      data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+      required
+      data-label="Contraseña"
+            />
+  </user-form>
     </main>
     <div class="loader" id="loader"></div>
     <script src="/app/scripts/login.js" type="module"></script>
     <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
+    <script src="/app/scripts/components/userForm.component.js" type="module"></script>
   </body>
 </html>

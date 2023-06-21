@@ -1,13 +1,9 @@
-@use "./modules" as *
-.pageTitle
-  text-align: center
-.mainPage
-  width: 100%
-  padding: 1rem
+@use "varsnmix" as *
+@use "reset"
 .userForm
   $inputVerticalPadding: .5rem
   @include flex($direction: column, $align: flex-start, $gap: 1rem)
-  width: min(100%, 40rem)
+  width: 100%
   margin:
     left: auto
     right: auto
@@ -41,8 +37,14 @@
     border-radius: $mainRadius
     background-color: $mainLight
     color: $white
-  &__login
+  &__link
     align-self: flex-end
+    color: $white
+  &__close
+    align-self: flex-end
+    padding: 0.5rem 1rem
+    border-radius: $mainRadius
+    background-color: $redError
     color: $white
 .inputError
   background-color: $redError

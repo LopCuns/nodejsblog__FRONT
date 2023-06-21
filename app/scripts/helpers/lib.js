@@ -86,6 +86,17 @@ const j = {
   changeValue: (el, newVal) => {
     el.value = newVal
     return el
+  },
+  show: (el) => {
+    j.removeClass(el, 'hidden')
+    return el
+  },
+  hide: (el) => {
+    j.addClass(el, 'hidden')
+    return el
+  },
+  getFromShadow: (el, query) => {
+    return j.getQuery(el.shadowRoot, query)
   }
 }
 

@@ -6,8 +6,9 @@ const registerFormHandler = async (e) => {
   showLoader()
   try {
     e.preventDefault()
+    const form = e.target
     // Obtener el username,email y password
-    const userData = new FormData(e.target)
+    const userData = new FormData(form)
     // Registrar el usuario ( necesario el await para que el catch no se ejecute antes que la request )
     await registerUser({
       username: userData.get('username'),
@@ -15,7 +16,7 @@ const registerFormHandler = async (e) => {
       password: userData.get('password')
     })
     // Resetear el formulario
-    e.target.reset()
+    form.reset()
     // Redireccionar al login
     window.location = '/app/html/pages/login.html'
   } catch (err) {

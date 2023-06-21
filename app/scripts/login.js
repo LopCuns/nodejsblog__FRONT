@@ -1,6 +1,8 @@
 import j from './helpers/lib.js'
 import loginFormHandler from './events/loginForm.handler.js'
 const start = () => {
-  j.ev(j.id('loginForm'), 'submit', loginFormHandler)
+  j.ev(window, 'DOMContentLoaded', () => {
+    j.ev(j.getFromShadow(j.id('loginForm'), 'form'), 'submit', loginFormHandler)
+  })
 }
 start()

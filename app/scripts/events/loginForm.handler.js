@@ -6,8 +6,9 @@ const loginFormHandler = async (e) => {
   showLoader()
   try {
     e.preventDefault()
+    const form = e.target
     // Obtener el email y password
-    const userData = new FormData(e.target)
+    const userData = new FormData(form)
     // Iniciar sesión
     const response = await loginUser({
       email: userData.get('email'),
@@ -16,7 +17,7 @@ const loginFormHandler = async (e) => {
     // Almacenar el JsonWebToken del usuario en el localStorage
     localStorage.setItem('jwt', await response.jwt)
     // Resetear el formulario
-    e.target.reset()
+    form.reset()
     // Redireccionar a la página principal
     window.location = '/index.html'
   } catch (err) {
