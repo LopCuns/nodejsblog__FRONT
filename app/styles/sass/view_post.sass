@@ -2,6 +2,7 @@
 :root
   --postVisibility: hidden
 .post
+  position: relative
   @include flex($direction: column, $align: flex-end)
   width: min(100%, 40rem)
   padding: 1rem
@@ -10,6 +11,12 @@
   background-color: $mainLight
   color: $white
   visibility: var(--postVisibility)
+  &__delete
+    position: absolute
+    top:0
+    right: 0
+    width: 3rem
+    margin: 1rem
   &__id
     font-size: .8em
   &__title
@@ -50,3 +57,6 @@
       color: $white
       background-color: $superLight
       font-weight: bold
+
+.hidden
+  display: none

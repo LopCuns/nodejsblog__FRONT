@@ -101,3 +101,13 @@ export const getLikedPosts = () => {
     }
   })
 }
+
+export const deletePost = (postId) => {
+  return requestModel({
+    path: `/posts/delete/${postId}`,
+    fetchOptions: {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${j.getJWT()}` }
+    }
+  })
+}

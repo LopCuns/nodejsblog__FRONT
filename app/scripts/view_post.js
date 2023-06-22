@@ -1,11 +1,12 @@
 import j from './helpers/lib.js'
 import { showLoader, hideLoader } from './helpers/loader.js'
 import { getPostByTitleAuthor } from './server/requests/post.requests.js'
-import { getUsernameById } from './server/requests/user.requests.js'
+import { getUserProfile, getUsernameById } from './server/requests/user.requests.js'
 import commentFormHandler from './events/commentForm.handler.js'
 import likeHandler from './events/like.handler.js'
 import generateError from './components/error.component.js'
 import generatePostComment from './components/comment.component.js'
+import deletePostHandler from './events/deletePost.handler.js'
 const start = async () => {
   // Mostrar el loader
   showLoader()
@@ -14,8 +15,9 @@ const start = async () => {
     const { title, author } = j.getQueryParameters(location.href)
     // Obtener el post a partir de su title y su author
     const post = await getPostByTitleAuthor(title, author)
-    // Cambiar el valor de la visibilidad de la página a visible
-    j.changeCssVar('--postVisibility', 'visible')
+    // Ocultar el botón de eliminar post si el usuario no es el autor del post
+    const userUsername = (await getUserProfile()).username
+    if (post.author !== userUsername) j.addClass(j.id('deleteBtn'), 'hidden')
     // Incluir el titulo del post en la página
     j.setText(j.id('postTitle'), title.replaceAll('%20', ' '))
     // Incluir el autor del post en la página
@@ -46,6 +48,9 @@ const start = async () => {
     // Añadir los handlers al formulario para comentar y el botón de like
     j.ev(j.id('commentForm'), 'submit', commentFormHandler(post._id))
     j.ev(j.id('likeBtn'), 'click', likeHandler(post._id))
+    j.ev(j.id('deleteBtn'), 'click', deletePostHandler(post._id))
+    // Cambiar el valor de la visibilidad de la página a visible
+    j.changeCssVar('--postVisibility', 'visible')
   } catch (err) {
     // Generar un error
     return generateError({
