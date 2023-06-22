@@ -77,7 +77,7 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="/app/styles/css/unregister.css">
+    <link rel="stylesheet" href="/app/styles/css/unregister.css" />
     <title>Eliminar cuenta</title>
   </head>
   <body>
@@ -96,36 +96,39 @@
     <h2 class="pageTitle">Eliminar cuenta</h2>
     <main class="mainPage">
       <user-form
-      data-submit="Eliminar cuenta"
-      data-linkhref="/app/html/pages/register.html"
-      data-linktext="¿No tienes una cuenta?"
-      id="unregisterForm"
-    >
-      <input
-        type="email"
-        name="email"
-        id="emailInput"
-        class="userForm__input"
-        pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
-        data-perror="Debes ingresar un email válido"
-        required
-        data-label="Email"
-      />
-      <input
-        type="password"
-        name="password"
-        id="passwordInput"
-        class="userForm__input"
-        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
-        data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
-        required
-        data-label="Contraseña"
-      />
-    </user-form>
+        data-submit="Eliminar cuenta"
+        data-linkhref="/app/html/pages/register.html"
+        data-linktext="¿No tienes una cuenta?"
+        id="unregisterForm"
+      >
+        <input
+          type="email"
+          name="email"
+          id="emailInput"
+          class="userForm__input"
+          pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
+          data-perror="Debes ingresar un email válido"
+          required
+          data-label="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          id="passwordInput"
+          class="userForm__input"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+          data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+          required
+          data-label="Contraseña"
+        />
+      </user-form>
     </main>
     <div class="loader" id="loader"></div>
     <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
-    <script src="/app/scripts/components/userForm.component.js" type="module"></script>
+    <script
+      src="/app/scripts/components/userForm.component.js"
+      type="module"
+    ></script>
     <script src="/app/scripts/unregister.js" type="module"></script>
   </body>
 </html>

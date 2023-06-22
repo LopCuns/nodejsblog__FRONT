@@ -98,4 +98,18 @@ a {
 }
 .pageTitle {
   text-align: center;
-} /*# sourceMappingURL=unregister.css.map */
+}
+.mainPage {
+  width: 100%;
+}
+.posts_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+.post_sampleContainer {
+  width: min(100%, 40rem);
+} /*# sourceMappingURL=likedPosts.css.map */

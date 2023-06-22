@@ -1,5 +1,5 @@
 import j from './helpers/lib.js'
-import registerFormHandler from './events/register_form.handler.js'
+import registerFormHandler from './events/registerForm.handler.js'
 
 const start = async () => {
   j.ev(window, 'DOMContentLoaded', async () => {

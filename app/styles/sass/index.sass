@@ -33,7 +33,10 @@ body
   color: $white
   text-decoration: none
 .posts_wrapper
-  @include flex ($gap: 3rem)
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr))
+  gap: 2rem
+  justify-items: center
   width: 100%
   padding: 1rem
 .post_sampleContainer

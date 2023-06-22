@@ -92,3 +92,12 @@ export const createPost = async (post) => {
     }
   })
 }
+
+export const getLikedPosts = () => {
+  return requestModel({
+    path: '/posts/liked',
+    fetchOptions: {
+      headers: { Authorization: `Bearer ${j.getJWT()}` }
+    }
+  })
+}

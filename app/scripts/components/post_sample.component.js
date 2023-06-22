@@ -40,7 +40,7 @@ class Postsample extends HTMLDivElement {
     j.setText(styles, `@import "${this.stylesRoute}"`)
     // Añadir evento click que redirije a la página para ver el post completo
     j.ev(this, 'click', () => {
-      window.location = `app/html/pages/view_post.html?author=${this.author}&title=${this.title}`
+      window.location = `/app/html/pages/view_post.html?author=${this.author}&title=${this.title}`
     })
     this.shadowRoot.appendChild(styles)
   }

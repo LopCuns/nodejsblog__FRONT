@@ -114,7 +114,10 @@ export const userUnregister = ({ email, password }) => {
     path: '/user/unregister',
     fetchOptions: {
       method: 'DELETE',
-      headers: { Authorization: `Bearer ${j.getJWT()}`, 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: `Bearer ${j.getJWT()}`,
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ email, password })
     }
   })
