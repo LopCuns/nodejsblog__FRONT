@@ -5,7 +5,6 @@
   @include flex($direction: column)
   width: 100%
   padding-left: 2rem
-  &__txt
   &__data
     @include flex($justify: flex-start,$gap: 1rem)
     width: 100%
@@ -32,9 +31,13 @@
   width: 100%
   padding: 1rem
   &__btn
+    padding: .5rem 1rem
+    border-radius: $mainRadius
     font:
       family: Arial, Helvetica, sans-serif
       size: 1em
+    background-color: $redError
+    color: $white
 .profileLink
   color: $black
 

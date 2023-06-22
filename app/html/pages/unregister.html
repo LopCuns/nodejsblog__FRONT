@@ -3,7 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="description" content="Frontend side of jlblog application" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/app/assets/icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/app/assets/icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/app/assets/icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/app/assets/icon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/app/assets/icon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="app/assets/icon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="app/assets/icon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/app/assets/icon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/app/assets/icon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/app/assets/icon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/app/assets/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/app/assets/icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/app/assets/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="app/assets/icon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="/app/styles/css/unregister.css">
+    <title>Eliminar cuenta</title>
   </head>
-  <body></body>
+  <body>
+    <header class="pageHeader">
+      <h1 class="pageHeader__title">jlblog</h1>
+
+      <nav class="pageHeader__nav">
+        <ul class="pageHeader__nav__ul">
+          <li class="pageHeader__nav__ul__li">
+            <a href="javascript:history.back()">Atrás</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <h2 class="pageTitle">Eliminar cuenta</h2>
+    <main class="mainPage">
+      <user-form
+      data-submit="Eliminar cuenta"
+      data-linkhref="/app/html/pages/register.html"
+      data-linktext="¿No tienes una cuenta?"
+      id="unregisterForm"
+    >
+      <input
+        type="email"
+        name="email"
+        id="emailInput"
+        class="userForm__input"
+        pattern="^[\w\.-]+@([\w-]+\.)+[\w-]{2,4}$"
+        data-perror="Debes ingresar un email válido"
+        required
+        data-label="Email"
+      />
+      <input
+        type="password"
+        name="password"
+        id="passwordInput"
+        class="userForm__input"
+        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{8,}.*$"
+        data-perror="la contraseña debe contener 8 caracters y al menos una mayúscula, una minúscula y un número"
+        required
+        data-label="Contraseña"
+      />
+    </user-form>
+    </main>
+    <div class="loader" id="loader"></div>
+    <script src="/app/scripts/helpers/animated_input.js" type="module"></script>
+    <script src="/app/scripts/components/userForm.component.js" type="module"></script>
+    <script src="/app/scripts/unregister.js" type="module"></script>
+  </body>
 </html>

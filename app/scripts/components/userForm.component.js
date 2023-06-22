@@ -85,7 +85,9 @@ class userForm extends HTMLElement {
     // Función para obtener elementos a partir del componente
     const getFromComponent = j.getQueryCurry(this.shadowRoot)
     // Añadir event listener para cerrar el formulario
-    j.ev(getFromComponent('.userForm__close'), 'click', () => j.hide(this))
+    if (this.close) {
+      j.ev(getFromComponent('.userForm__close'), 'click', () => j.hide(this))
+    }
   }
 }
 

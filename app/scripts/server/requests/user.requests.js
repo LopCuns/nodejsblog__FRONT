@@ -3,12 +3,17 @@ import uuid4 from '../../helpers/uuid4.js'
 import requestModel from './requestModel.js'
 
 export const getUsernameById = async (_id) => {
-  return (
-    await requestModel({
-      path: `/user/get-username/${_id}`,
-      fetchOptions: { headers: { Authorization: `Bearer ${j.getJWT()}` } }
-    })
-  ).username
+  try {
+    const username = (
+      await requestModel({
+        path: `/user/get-username/${_id}`,
+        fetchOptions: { headers: { Authorization: `Bearer ${j.getJWT()}` } }
+      })
+    ).username
+    return username
+  } catch (err) {
+    return 'DeletedUser'
+  }
 }
 
 export const registerUser = async ({ username, email, password }) => {
@@ -42,10 +47,23 @@ export const loginUser = async ({ email, password }) => {
   })
 }
 export const getUserProfile = async () => {
-  return requestModel({
-    path: '/user/profile',
-    fetchOptions: { headers: { Authorization: `Bearer ${j.getJWT()}` } }
-  })
+  try {
+    const userProfile = await requestModel({
+      path: '/user/profile',
+      fetchOptions: { headers: { Authorization: `Bearer ${j.getJWT()}` } }
+    })
+    return userProfile
+  } catch (err) {
+    return {
+      _id: 'none',
+      username: 'Guest',
+      role: 'Guest',
+      email: 'none',
+      password: 'none',
+      posts: [],
+      likedPosts: []
+    }
+  }
 }
 
 export const updateUsername = async ({ newUsername }) => {
@@ -87,6 +105,17 @@ export const updatePassword = async ({ oldPassword, newPassword }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ oldPassword, newPassword })
+    }
+  })
+}
+
+export const userUnregister = ({ email, password }) => {
+  return requestModel({
+    path: '/user/unregister',
+    fetchOptions: {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${j.getJWT()}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
     }
   })
 }

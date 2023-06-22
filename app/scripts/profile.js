@@ -35,5 +35,10 @@ const start = async () => {
     'submit',
     updatePasswordHandler
   )
+  // Listener para cerrar sesión
+  j.ev(j.id('endSession'), 'click', () => {
+    localStorage.removeItem('jwt')
+    window.location = '/index.html'
+  })
 }
 start()
