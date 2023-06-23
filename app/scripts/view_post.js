@@ -1,7 +1,10 @@
 import j from './helpers/lib.js'
 import { showLoader, hideLoader } from './helpers/loader.js'
 import { getPostByTitleAuthor } from './server/requests/post.requests.js'
-import { getUserProfile, getUsernameById } from './server/requests/user.requests.js'
+import {
+  getUserProfile,
+  getUsernameById
+} from './server/requests/user.requests.js'
 import commentFormHandler from './events/commentForm.handler.js'
 import likeHandler from './events/like.handler.js'
 import generateError from './components/error.component.js'
@@ -15,9 +18,11 @@ const start = async () => {
     const { title, author } = j.getQueryParameters(location.href)
     // Obtener el post a partir de su title y su author
     const post = await getPostByTitleAuthor(title, author)
+    // Obtener el usuario
+    const user = await getUserProfile()
     // Ocultar el botón de eliminar post si el usuario no es el autor del post
-    const userUsername = (await getUserProfile()).username
-    if (post.author !== userUsername) j.addClass(j.id('deleteBtn'), 'hidden')
+    const userUsername = user.username
+    if (author !== userUsername) j.addClass(j.id('deleteBtn'), 'hidden')
     // Incluir el titulo del post en la página
     j.setText(j.id('postTitle'), title.replaceAll('%20', ' '))
     // Incluir el autor del post en la página
@@ -49,6 +54,19 @@ const start = async () => {
     j.ev(j.id('commentForm'), 'submit', commentFormHandler(post._id))
     j.ev(j.id('likeBtn'), 'click', likeHandler(post._id))
     j.ev(j.id('deleteBtn'), 'click', deletePostHandler(post._id))
+    // Ocultar y mostrar los iconos de like y dislike
+    const likedPosts = user.likedPosts
+    // Si el usuario le ha dado like
+    if (likedPosts.indexOf(post._id) === -1) {
+      // Mostrar el icono de like y ocultar el de dislike
+      j.removeClass(j.id('likeIcon'), 'hidden')
+      j.addClass(j.id('dislikeIcon'), 'hidden')
+    } else {
+      // Si el usuario no le ha dado like
+      // Mostrar el icono de dislike y ocultar el de like
+      j.removeClass(j.id('dislikeIcon'), 'hidden')
+      j.addClass(j.id('likeIcon'), 'hidden')
+    }
     // Cambiar el valor de la visibilidad de la página a visible
     j.changeCssVar('--postVisibility', 'visible')
   } catch (err) {
